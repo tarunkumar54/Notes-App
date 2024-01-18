@@ -84,6 +84,16 @@ addNote.addEventListener("click", () => {
       btnsDiv.style.visibility = "hidden";
     }
 
+      //Delete Empty Notes
+  function delEmpty() {
+    if (newTextArea.textLength === 0) {
+      newCard.remove();
+    }
+  }
+  if (editBtn.innerText === "Save") {
+    editBtn.addEventListener("click", delEmpty);
+  }
+
     //Handling auto save
     function handleClickOutside(event) {
       if (event.target !== newCard && !newCard.contains(event.target)) {
@@ -129,13 +139,4 @@ addNote.addEventListener("click", () => {
     }
   });
 
-  //Delete Empty Notes
-  function delEmpty() {
-    if (newTextArea.textLength === 0) {
-      newCard.remove();
-    }
-  }
-  if (editBtn.innerText === "Save") {
-    editBtn.addEventListener("click", delEmpty);
-  }
 });
